@@ -12,9 +12,11 @@ export class App {
 
             for(let j: number = i + 1; j < numbers.length; j++) {
 
-                if(numbers[i] + numbers[j] === 2020) {
-                    console.log('result: ' + (numbers[i] * numbers[j]))
-                    return
+                for(let k: number = j + 1; k < numbers.length; k++) {
+                    if(numbers[i] + numbers[j] + numbers[k] === 2020) {
+                        console.log('result: ' + (numbers[i] * numbers[j] * numbers[k]))
+                        return
+                    }
                 }
             }
         }
