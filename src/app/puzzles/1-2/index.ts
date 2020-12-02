@@ -1,12 +1,11 @@
-import { InputReader } from "./reader/InputReader";
+import { PuzzleRunner } from "../../common";
+import { InputReader } from "../../reader/InputReader";
 
+class App implements PuzzleRunner {
 
+    public run(input: string): void {
 
-export class App {
-
-    public run(): void {
-
-        let numbers: number[] = new InputReader().read(process.argv[2])
+        let numbers: number[] = new InputReader().read(input)
 
         for(let i: number = 0; i < numbers.length; i++) {
 
@@ -22,3 +21,5 @@ export class App {
         }
     }
 }
+
+export default new App()

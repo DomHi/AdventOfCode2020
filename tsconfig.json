@@ -9,7 +9,8 @@
         "outDir": "dist"
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "src/**/puzzleInput"
     ],
     "exclude": [
         "node_modules"
