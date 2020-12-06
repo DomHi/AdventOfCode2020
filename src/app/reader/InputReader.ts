@@ -29,4 +29,36 @@ export class InputReader {
             })
         })
     }
+
+    public readChunks(file: string, separator: RegExp): Observable<string> {
+
+        return new Observable((subscriber) => {
+
+            let currentChunk: string[] = []
+
+            let rl = readline.createInterface({
+                input: fs.createReadStream(file)
+            })
+
+            rl.on('line', (line) => {
+
+                if (separator.test(line)) {
+                    if (currentChunk.length === 0) {
+                        subscriber.next(currentChunk.join('\n'))
+                        currentChunk = []
+                    }
+                    return
+                }
+
+                currentChunk.push(line)
+            })
+
+            rl.on('close', () => {
+                if (currentChunk.length !== 0) {
+                    subscriber.next(currentChunk.join('\n'))
+                }
+                subscriber.complete()
+            })
+        })
+    }
 }
