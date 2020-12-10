@@ -1,6 +1,6 @@
 
 function usage(): void {
-    console.log('Usage: npm run start <puzzleID> <inputFile>')
+    console.log('Usage: npm run start <puzzleID>')
 }
 
 function main(): void {
