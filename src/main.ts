@@ -13,7 +13,7 @@ function main(): void {
         return
     }
 
-    let input: string = __dirname + '/app/puzzles/inputs/' + puzzle.charAt(0) + '/puzzleInput'
+    let input: string = __dirname + '/app/puzzles/inputs/' + puzzle.split('-')[0] + '/puzzleInput'
 
     import('./app/puzzles/' + puzzle).then( puzzle => {
         puzzle.default.run(input)
